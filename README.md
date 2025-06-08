@@ -21,6 +21,7 @@ This project demonstrates a minimal but production-aware **Text Generation API**
 ---
 
 ## Project Structure 
+```
 CustomAwsLLMAPI
 ├── src/
 │   ├── generate_text_lambda                  # structure used by AWS SAM
@@ -31,6 +32,7 @@ CustomAwsLLMAPI
 ├── samconfig.toml                      # File generating after building with AWS SAM
 ├── template.yaml                       # AWS SAM template
 └── .gitignore
+```
 
 ---
 
