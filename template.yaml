@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Text Generation API using Bedrock and content filtering API
+
+Globals:
+  Function:
+    Timeout: 10
+    Runtime: python3.9
+    MemorySize: 256
+    Environment:
+      Variables:
+        BEDROCK_MODEL_ID: "amazon.nova-micro-v1:0"
+
+Resources:
+  GenerateTextFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: generate_text_lambda.lambda_handler
+      CodeUri: src/generate_text_lambda/
+      Events:
+        ApiTrigger:
+          Type: Api
+          Properties:
+            Path: /generate
+            Method: post
